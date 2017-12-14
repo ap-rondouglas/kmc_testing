@@ -1,5 +1,11 @@
 module.exports = function(config) {
+  let customBrowsers =  ['Chrome', 'Safari', 'Firefox', 'PhantomJS'];
+  if (process.env.TRAVIS) {
+    customBrowsers = ['PhantomJS'];
+  }
+  
   config.set({
+
     basePath: '',
 
     frameworks: ['mocha', 'sinon-chai', 'browserify'],
