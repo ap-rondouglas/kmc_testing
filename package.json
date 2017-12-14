@@ -6,7 +6,12 @@
   "scripts": {
     "test": "karma start karma.conf.js --single-run",
     "twatch": "karma start karma.conf.js",
-    "codecov": "codecov"
+    "codecov": "npm test && codecov",
+    "traviscov": "cat ./coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ap-rondouglas/kmc_testing.git"
   },
   "author": "ron douglas",
   "license": "ISC",
@@ -35,6 +40,6 @@
     "phantomjs-prebuilt": "^2.1.7",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-"watchify": "^3.7.0"
+    "watchify": "^3.7.0"
   }
 }

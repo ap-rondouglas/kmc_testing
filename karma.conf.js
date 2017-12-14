@@ -1,9 +1,9 @@
 module.exports = function(config) {
-  let customBrowsers =  ['Chrome', 'Safari', 'Firefox', 'PhantomJS'];
+  let customBrowsers =  ['PhantomJS']; //['Chrome', 'Safari', 'Firefox', 'PhantomJS'];
   if (process.env.TRAVIS) {
     customBrowsers = ['PhantomJS'];
   }
-  
+
   config.set({
 
     basePath: '',
@@ -12,7 +12,7 @@ module.exports = function(config) {
 
     files: [
       'src/**/*.js',
-      'test/**/*.spec.js'
+      'test/*.js'
     ],
 
     preprocessors: {
@@ -39,6 +39,8 @@ module.exports = function(config) {
       ]
     },
 
+    reporters: ['mocha', 'coverage'],
+    
     coverageReporter: {
       reporters: [
         {'type': 'text'},
@@ -46,8 +48,6 @@ module.exports = function(config) {
         {'type': 'lcov'}
       ]
     },
-
-    reporters: ['progress', 'mocha', 'coverage'],
 
     port: 9876,
     colors: true,
@@ -57,7 +57,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
     //browsers: ['Chrome', 'Safari', 'Firefox', 'PhantomJS'],
-    browsers: ['PhantomJS'],
+    browsers: customBrowsers,
 
     concurrency: Infinity
   })
