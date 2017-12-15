@@ -6,6 +6,6 @@ cache:
   directories:
     - node_modules
 after_script:
-- yarn codecov
+- yarn traviscov
 notifications:
   email: false
